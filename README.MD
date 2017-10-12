@@ -8,8 +8,8 @@ SE Lab for AppDynamics 4.4 - Server Visibility
 
 # 2. Lab Setup
 ## 2.1. Create your environment
-* [Ravello URL]
-* Blueprint
+* Log into [Ravello]
+* Create an App from the Blueprint ```4.4-ServerVisibility-Lab-bp```
 * SSH Credentials
   * User: ```ravello```
   * Password: ```Appdynamics123```
@@ -147,5 +147,5 @@ name: docker-sock
 [Tier Metric Correlator]: https://docs.appdynamics.com/display/latest/Tier+Metric+Correlator
 [Server Tagging]: https://docs.appdynamics.com/display/latest/Server+Tagging
 [Docker Visibility]: https://docs.appdynamics.com/display/latest/Integrated+Docker+Visibility
-[ravello url]: https://cloud.ravellosystems.com/
+[ravello]: https://cloud.ravellosystems.com/
 [slack]: https://appdynamics.slack.com/messages/@michael.englert
