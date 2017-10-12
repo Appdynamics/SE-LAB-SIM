@@ -1,0 +1,51 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    app: appdynamics-agents
+    tier: monitoring
+    version: v1
+  name: appd-agents
+spec:
+  template:
+    metadata:
+      labels:
+        app: appd-agents
+      name: appd-agents
+    spec:
+      serviceAccountName: appd
+      containers:
+        - env:
+            - name: APPDYNAMICS_CONTROLLER_HOST_NAME
+              value: "172.17.0.1"
+            - name: APPDYNAMICS_CONTROLLER_PORT
+              value: "8090"
+            - name: APPDYNAMICS_AGENT_ACCOUNT_NAME
+              value: "customer1"
+            - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+              value: "eb3d57ec-f261-468c-9b71-547059a5d8aa"
+            - name: APPDYNAMICS_SIM_ENABLED
+              value: "true"
+            - name: APPDYNAMICS_DOCKER_ENABLED
+              value: "true"
+            - name: APPDYNAMICS_CONTROLLER_SSL_ENABLED
+              value: "false"
+          image: "172.17.0.1:5000/appd-agents"
+          name: appd-agents
+          volumeMounts:
+            - mountPath: /app-agent
+              name: app-agent
+            - mountPath: /var/run/docker.sock
+              name: docker-sock
+            - mountPath: /hostroot
+              name: host-root
+      volumes:
+        - hostPath:
+            path: /
+          name: host-root
+        - hostPath:
+            path: /opt/app-agent
+          name: app-agent
+        - hostPath:
+            path: /var/run/docker.sock
+          name: docker-sock
