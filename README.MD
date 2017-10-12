@@ -68,6 +68,7 @@ name: app-agent
 name: docker-sock
 ```
 * Deploy the Agent
+  * ```cd /home/ravello/openshift```
   * ```oc create -f appd-agents.yml```
 * Check that the Agent shows up in your Controller UI Server tab
   * ![sim agent reporting](img/sim_agent_reporting.png)
@@ -96,9 +97,13 @@ name: docker-sock
 ## 4.1. Prepare the Application and Load
 * Scale your Application
   * ```oc scale dc springscale --replicas=5```
+* Get your service IP
+  * ```oc status```
+  * Look for ```svc/springscale - <Service IP>:8080```
 * Put load on the system
-  * ```/home/ravello/load.sh <YOUR RAVELLO IP>```
+  * ```/home/ravello/load.sh <Service IP>```
 * Grab a coffee (10 minutes)
+
 ## 4.2. Enable Heatmaps
 * Goto the admin.jsp of your Controller
 * Login with Password ```Appdynamics123```
@@ -109,6 +114,7 @@ name: docker-sock
 * Save
 
 ![enable heatmaps](img/enable_heatmaps.png)
+
 ## 4.2. Use Heatmaps
 * Login to the Controller
 * Navigate to your ```Application``` --> ```Tiers & Nodes```
@@ -122,7 +128,7 @@ name: docker-sock
 * Get the POD list and note the exact name of the POD starting with ```appd-agents-```
   * ```oc get pods```
 * Login to the POD
-  * ```oc exec -ti appd-agent-ID /bin/bash```
+  * ```oc exec -ti <POD Name> /bin/bash```
 * Navigate to the Server Monitoring config
   * ```cd /machine-agent/extensions/ServerMonitoring/conf/```
 * Look at the file
@@ -137,6 +143,12 @@ name: docker-sock
 * Controller is not working
   * Restart the docker container ```docker restart appd-platform```
   * Start the services ```/home/ravello/startup.sh```
+* Controller license expired
+  * Get a license.lic file
+  * Copy it to the ravello instance
+    * ```scp /my/local/folder/license.lic ravello@<YOUR RAVELLO IP>/home/ravello/```
+  * Copy it to the Controller
+    * ```docker cp /home/ravello/license.lic appd-platform:/opt/appdynamics/platform/controller/```
 
 # 7. Provide Feedback for the Lab
 
