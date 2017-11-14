@@ -155,7 +155,7 @@ name: docker-sock
 * Do a pull request
 * Ping on [slack]
 
-[AppDynamics Agent]: /appd-agents.yml
+[AppDynamics Agent]: /openshift/appd-agents.yml
 [Tier Metric Correlator]: https://docs.appdynamics.com/display/latest/Tier+Metric+Correlator
 [Server Tagging]: https://docs.appdynamics.com/display/latest/Server+Tagging
 [Docker Visibility]: https://docs.appdynamics.com/display/latest/Integrated+Docker+Visibility
