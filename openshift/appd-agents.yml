@@ -30,8 +30,10 @@ spec:
               value: "true"
             - name: APPDYNAMICS_CONTROLLER_SSL_ENABLED
               value: "false"
-          image: "172.17.0.1:5000/appd-agents"
+          image: "michaelenglert/appd-agent"
           name: appd-agents
+          securityContext: # Added so this would also work on RedHat Openshift
+            privileged: true
           volumeMounts:
             - mountPath: /app-agent
               name: app-agent
