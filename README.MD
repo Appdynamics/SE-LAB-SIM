@@ -15,7 +15,7 @@ SE Lab for AppDynamics 4.4 - Server Visibility
   * Password: ```Appdynamics123```
 * Controller/Platform Credentials
   * User: ```admin```
-  * Password: ```Appdynamics123```
+  * Password: ```appdynamics```
 
 ## 2.2. Accessing the Lab
 * SSH into your environment
@@ -106,7 +106,7 @@ name: docker-sock
 
 ## 4.2. Enable Heatmaps
 * Goto the admin.jsp of your Controller
-* Login with Password ```Appdynamics123```
+* Login with Password ```appdynamics```
 * Goto ```Account Settings```
 * Edit Account ```customer1```
 * Add additional property
