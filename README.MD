@@ -1,4 +1,4 @@
-SE Lab for AppDynamics 4.4 - Server Visibility
+SE Lab for AppDynamics - Server Visibility
 ======
 # 1. General Information
 **This Lab will cover:**
@@ -9,7 +9,7 @@ SE Lab for AppDynamics 4.4 - Server Visibility
 # 2. Lab Setup
 ## 2.1. Create your environment
 * Log into [Ravello]
-* Create an App from the Blueprint ```4.4-ServerVisibility-Lab-bp```
+* Create an App from the Blueprint ```ServerVisibility-Lab-bp```
 * SSH Credentials
   * User: ```ravello```
   * Password: ```Appdynamics123```
